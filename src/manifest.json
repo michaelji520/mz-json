@@ -1,0 +1,18 @@
+ {
+  "name": "mz-json",
+  "description" : "Simple json format tool",
+  "version": "1.6",
+  "manifest_version": 2,
+  "icons": {
+		"16": "./avengers_16.png",
+		"32": "./avengers_32.png",
+    "48": "./avengers_48.png",
+    "64": "./avengers_48.png",
+    "128": "./avengers_48.png"
+	},
+  "browser_action": {
+    "default_popup": "./popup.html",
+    "default_icon": "./avengers_32.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
