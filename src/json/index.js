@@ -5,6 +5,8 @@ import { jsonConvert } from '../common/toolkit';
 
 const TAB_SIZE = 2;
 
+let initValue = '';
+
 const instance = monaco.editor.create(document.getElementById('editor'), {
   value: '',
   autoIndent: true,
@@ -34,6 +36,7 @@ format.addEventListener('click', () => {
   let newVal = raw;
   if (traverse.checked) {
     newVal = jsonConvert(raw);
+    console.log('traverse val', newVal)
   } else {
     newVal = JSON.parse(raw);
   }

@@ -1,10 +1,17 @@
-
-export const isJSONString = str => typeof str === 'string' && /(\[.*])|({.*})/.test(str);
+export function isJSONString(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
 /**
  * 将object对象可能为JSON字符串的属性转化为JS变量
  */
 export function jsonConvert(data) {
   try {
+    console.log('is json string', isJSONString(data));
     data = isJSONString(data) ? JSON.parse(data) : data;
     const result = Array.isArray(data) ? [] : {};
     for (const [key, value] of Object.entries(data)) {
