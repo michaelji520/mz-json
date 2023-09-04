@@ -1,6 +1,7 @@
 export function isJSONString(str) {
   try {
-    JSON.parse(str);
+    const res = JSON.parse(str);
+    return !!(typeof res === 'object' && res);
   } catch (e) {
     return false;
   }
@@ -11,7 +12,6 @@ export function isJSONString(str) {
  */
 export function jsonConvert(data) {
   try {
-    console.log('is json string', isJSONString(data));
     data = isJSONString(data) ? JSON.parse(data) : data;
     const result = Array.isArray(data) ? [] : {};
     for (const [key, value] of Object.entries(data)) {
